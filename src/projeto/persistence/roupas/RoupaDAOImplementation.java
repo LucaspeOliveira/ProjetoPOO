@@ -30,8 +30,7 @@ public class RoupaDAOImplementation implements RoupaDAO {
                 EntityRoupa roupa = new EntityRoupa();
                 roupa.setId(rs.getInt("id"));
                 roupa.setNome(rs.getString("nome"));
-                roupa.setTipo(rs.getString("tipoRoupa"));
-                roupa.setNome(rs.getString("nome"));
+                roupa.setTipo(rs.getString("tipo"));
                 roupa.setMarca(rs.getString("marca"));
                 roupa.setTamanho(rs.getString("tamanho"));
                 roupa.setGenero(rs.getString("genero"));
@@ -59,8 +58,7 @@ public class RoupaDAOImplementation implements RoupaDAO {
             EntityRoupa roupa = new EntityRoupa();
             roupa.setId(rs.getInt("id"));
             roupa.setNome(rs.getString("nome"));
-            roupa.setTipo(rs.getString("tipoRoupa"));
-            roupa.setNome(rs.getString("nome"));
+            roupa.setTipo(rs.getString("tipo"));
             roupa.setMarca(rs.getString("marca"));
             roupa.setTamanho(rs.getString("tamanho"));
             roupa.setGenero(rs.getString("genero"));
@@ -76,7 +74,7 @@ public class RoupaDAOImplementation implements RoupaDAO {
     @Override
     public void atualizarRoupa(EntityRoupa roupa) throws SQLException, ClassNotFoundException {
         Connection con = gDao.getConnection();
-        String sql = "UPDATE roupa SET tipoRoupa = ?, marca = ?, tamanho = ? WHERE id = ?";
+        String sql = "UPDATE roupa SET tipo = ?, marca = ?, tamanho = ? WHERE id = ?";
         PreparedStatement ps = con.prepareStatement(sql.toString());
         ps.setString(1, roupa.getTipo());
         ps.setString(2, roupa.getMarca());
