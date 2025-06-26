@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import projeto.model.EntityEletronico;
-import projeto.model.EntityEletronico;
 import projeto.persistence.GenericDAO;
 
 public class EletronicoDAOImplementation implements EletronicoDAO {

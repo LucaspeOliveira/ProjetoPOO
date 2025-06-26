@@ -101,8 +101,8 @@ public class RoupaDAOImplementation implements RoupaDAO {
         Connection con = gDao.getConnection();
         String sql=  "INSERT INTO roupa VALUES (?, ?, ?, ?, ?, ?) ";
         PreparedStatement ps = con.prepareStatement(sql);
-        ps.setString(1, roupa.getTipo());
-        ps.setString(2, roupa.getNome());
+        ps.setString(2, roupa.getTipo());
+        ps.setString(1, roupa.getNome());
         ps.setString(3, roupa.getMarca());
         ps.setString(4, roupa.getTamanho());
         ps.setString(5, roupa.getGenero());
