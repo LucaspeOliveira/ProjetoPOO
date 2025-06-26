@@ -29,7 +29,7 @@ public class EletronicoDAOImplementation implements EletronicoDAO {
                 EntityEletronico eletronico = new EntityEletronico();
                 eletronico.setId(rs.getInt("id"));
                 eletronico.setNome(rs.getString("nome"));
-                eletronico.setTipo(rs.getString("tipoRoupa"));
+                eletronico.setTipo(rs.getString("tipo"));
                 eletronico.setMarca(rs.getString("marca"));
                 eletronico.setQuantidade(rs.getInt("quantidade"));
                 listaEletronicos.add(eletronico);
@@ -55,7 +55,7 @@ public class EletronicoDAOImplementation implements EletronicoDAO {
             EntityEletronico eletronico = new EntityEletronico();
             eletronico.setId(rs.getInt("id"));
             eletronico.setNome(rs.getString("nome"));
-            eletronico.setTipo(rs.getString("tipoRoupa"));
+            eletronico.setTipo(rs.getString("tipo"));
             eletronico.setMarca(rs.getString("marca"));
             eletronico.setQuantidade(rs.getInt("quantidade"));
             return eletronico;
@@ -69,7 +69,7 @@ public class EletronicoDAOImplementation implements EletronicoDAO {
     @Override
     public void atualizarEletronicos(EntityEletronico eletronico) throws SQLException, ClassNotFoundException {
         Connection con = gDao.getConnection();
-        String sql = "UPDATE eletronico SET tipoRoupa = ?, marca = ?, tamanho = ? WHERE id = ?";
+        String sql = "UPDATE eletronico SET tipo = ?, marca = ?, tamanho = ? WHERE id = ?";
         PreparedStatement ps = con.prepareStatement(sql.toString());
         ps.setString(1, eletronico.getTipo());
         ps.setString(2, eletronico.getMarca());
