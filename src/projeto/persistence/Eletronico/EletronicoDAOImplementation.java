@@ -1,4 +1,4 @@
-package projeto.persistence.Eletronico;
+package projeto.persistence.eletronico;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,11 +17,11 @@ public class EletronicoDAOImplementation implements EletronicoDAO {
     }
 
     @Override
-    public List<EntityEletronico> listarEletronicos() throws SQLException, ClassNotFoundException {
+    public List<EntityEletronico> listarEletronico() throws SQLException, ClassNotFoundException {
         Connection con = gDao.getConnection();
         String sql = "SELECT * FROM eletronico";
         PreparedStatement ps;
-        List<EntityEletronico> listaEletronicos = new ArrayList<>();
+        List<EntityEletronico> listaEletronico = new ArrayList<>();
         try {
             ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
@@ -32,7 +32,7 @@ public class EletronicoDAOImplementation implements EletronicoDAO {
                 eletronico.setTipo(rs.getString("tipo"));
                 eletronico.setMarca(rs.getString("marca"));
                 eletronico.setQuantidade(rs.getInt("quantidade"));
-                listaEletronicos.add(eletronico);
+                listaEletronico.add(eletronico);
             }
             rs.close();
             ps.close();
@@ -40,11 +40,11 @@ public class EletronicoDAOImplementation implements EletronicoDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return listaEletronicos;
+        return listaEletronico;
     }
 
     @Override
-    public EntityEletronico procurarEletronicos(int idEletronico) throws SQLException, ClassNotFoundException, IllegalArgumentException {
+    public EntityEletronico procurarEletronico(int idEletronico) throws SQLException, ClassNotFoundException, IllegalArgumentException {
         Connection con = gDao.getConnection();
         StringBuffer sql = new StringBuffer();
         sql.append("SELECT * FROM eletronico WHERE id = ?");
@@ -67,7 +67,7 @@ public class EletronicoDAOImplementation implements EletronicoDAO {
     }
 
     @Override
-    public void atualizarEletronicos(EntityEletronico eletronico) throws SQLException, ClassNotFoundException {
+    public void atualizarEletronico(EntityEletronico eletronico) throws SQLException, ClassNotFoundException {
         Connection con = gDao.getConnection();
         String sql = "UPDATE eletronico SET tipo = ?, marca = ?, tamanho = ? WHERE id = ?";
         PreparedStatement ps = con.prepareStatement(sql.toString());
@@ -81,7 +81,7 @@ public class EletronicoDAOImplementation implements EletronicoDAO {
     }
 
     @Override
-    public void excluirEletronicos(int idEletronico) throws SQLException, ClassNotFoundException {
+    public void excluirEletronico(int idEletronico) throws SQLException, ClassNotFoundException {
         Connection con = gDao.getConnection();
         String sql = "DELETE eletronico WHERE id = ?";
         PreparedStatement ps = con.prepareStatement(sql);
@@ -92,7 +92,7 @@ public class EletronicoDAOImplementation implements EletronicoDAO {
     }
 
     @Override
-    public void adicionarEletronicos(EntityEletronico eletronico) throws SQLException, ClassNotFoundException {
+    public void adicionarEletronico(EntityEletronico eletronico) throws SQLException, ClassNotFoundException {
         Connection con = gDao.getConnection();
         String sql=  "INSERT INTO eletronico VALUES (?, ?, ?, ?) ";
         PreparedStatement ps = con.prepareStatement(sql);
