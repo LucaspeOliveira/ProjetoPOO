@@ -1,0 +1,41 @@
+CREATE DATABASE SistemaPOO
+GO
+USE SistemaPOO
+
+CREATE TABLE roupa(
+id            INT                NOT NULL    IDENTITY(1000, 1),
+nome        VARCHAR(30)        NOT NULL,
+tipo        VARCHAR(30)        NOT NULL,
+marca        VARCHAR(30)        NOT NULL,
+tamanho        VARCHAR(30)        NOT NULL,
+genero        CHAR(1)            NOT NULL,
+quantidade    int                NOT NULL,
+PRIMARY KEY (id)
+)
+
+CREATE TABLE eletronico(
+id            INT                NOT NULL    IDENTITY(1000,1),
+nome        VARCHAR(30)        NOT NULL,
+tipo        VARCHAR(40)        NOT NULL,
+marca        VARCHAR(30)        NOT NULL,
+quantidade    INT                NOT NULL,
+PRIMARY KEY (id)
+)
+
+CREATE TABLE moveis(
+id            INT                NOT NULL    IDENTITY(1000,1),
+nome        VARCHAR(30)        NOT NULL,
+tipo        VARCHAR(40)        NOT NULL,
+marca        VARCHAR(30)        NOT NULL,
+tamanho        VARCHAR(30)        NOT NULL,
+quantidade    INT                NOT NULL,
+PRIMARY KEY (id)
+)
+
+CREATE TABLE utensilios(
+id            INT                NOT NULL    IDENTITY(1000,1),
+nome        VARCHAR(30)        NOT NULL,
+tipo        VARCHAR(40)        NOT NULL,
+quantidade    INT                NOT NULL,
+PRIMARY KEY (id)
+)
