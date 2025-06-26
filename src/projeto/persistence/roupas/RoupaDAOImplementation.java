@@ -74,12 +74,14 @@ public class RoupaDAOImplementation implements RoupaDAO {
     @Override
     public void atualizarRoupa(EntityRoupa roupa) throws SQLException, ClassNotFoundException {
         Connection con = gDao.getConnection();
-        String sql = "UPDATE roupa SET tipo = ?, marca = ?, tamanho = ? WHERE id = ?";
+        String sql = "UPDATE roupa SET tipo = ?, nome = ?, marca = ?, tamanho = ?, genero = ? WHERE nome = ?";
         PreparedStatement ps = con.prepareStatement(sql.toString());
-        ps.setString(1, roupa.getTipo());
-        ps.setString(2, roupa.getMarca());
-        ps.setString(3, roupa.getTamanho());
-        ps.setInt(4, roupa.getId());
+        ps.setString(2, roupa.getTipo());
+        ps.setString(1, roupa.getNome());
+        ps.setString(3, roupa.getMarca());
+        ps.setString(4, roupa.getTamanho());
+        ps.setString(5, roupa.getGenero());
+        ps.setInt(6, roupa.getQuantidade());
         ps.execute();
         ps.close();
         con.close();

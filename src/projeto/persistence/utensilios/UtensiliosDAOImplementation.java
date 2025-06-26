@@ -68,12 +68,12 @@ public class UtensiliosDAOImplementation implements UtensiliosDAO{
     @Override
     public void atualizarUtensilios(EntityUtensilios Utensilios) throws SQLException, ClassNotFoundException {
         Connection con = gDao.getConnection();
-        String sql = "UPDATE Utensilios SET tipo = ?, nome = ?, quantidade = ? WHERE id = ?";
+        String sql = "UPDATE Utensilios SET tipo = ?, nome = ?, quantidade = ? WHERE nome = ?";
         PreparedStatement ps = con.prepareStatement(sql.toString());
         ps.setString(1, Utensilios.getTipo());
         ps.setInt(3, Utensilios.getQuantidade());
         ps.setString(2, Utensilios.getNome());
-        ps.setInt(4, Utensilios.getId());
+        ps.setString(4, Utensilios.getNome());
         ps.execute();
         ps.close();
         con.close();

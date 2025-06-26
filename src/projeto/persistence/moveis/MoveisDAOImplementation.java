@@ -69,14 +69,15 @@ public class MoveisDAOImplementation implements MoveisDAO{
         }
 
     @Override
-    public void atualizarMoveis(EntityMoveis Moveis) throws SQLException, ClassNotFoundException {
+    public void atualizarMoveis(EntityMoveis moveis) throws SQLException, ClassNotFoundException {
         Connection con = gDao.getConnection();
-        String sql = "UPDATE moveis SET tipo = ?, marca = ?, tamanho = ? WHERE id = ?";
+        String sql = "UPDATE moveis SET tipo = ?, nome = ?, marca = ?, tamanho = ? WHERE nome = ?";
         PreparedStatement ps = con.prepareStatement(sql.toString());
-        ps.setString(1, Moveis.getTipo());
-        ps.setString(2, Moveis.getMarca());
-        ps.setString(3, Moveis.getTamanho());
-        ps.setInt(4, Moveis.getId());
+        ps.setString(2, moveis.getTipo());
+        ps.setString(1, moveis.getNome());
+        ps.setString(3, moveis.getMarca());
+        ps.setString(4, moveis.getTamanho());
+        ps.setInt(5, moveis.getQuantidade());
         ps.execute();
         ps.close();
         con.close();

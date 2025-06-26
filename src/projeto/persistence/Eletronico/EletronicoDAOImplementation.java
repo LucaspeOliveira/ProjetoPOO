@@ -69,12 +69,12 @@ public class EletronicoDAOImplementation implements EletronicoDAO {
     @Override
     public void atualizarEletronico(EntityEletronico eletronico) throws SQLException, ClassNotFoundException {
         Connection con = gDao.getConnection();
-        String sql = "UPDATE eletronico SET tipo = ?, marca = ?, tamanho = ? WHERE id = ?";
+        String sql = "UPDATE eletronico SET tipo = ?, nome = ?, marca = ?, quantidade = ? WHERE nome = ?";
         PreparedStatement ps = con.prepareStatement(sql.toString());
-        ps.setString(1, eletronico.getTipo());
-        ps.setString(2, eletronico.getMarca());
-        //ps.setString(3, eletronico.getTamanho());
-        ps.setInt(4, eletronico.getId());
+        ps.setString(2, eletronico.getTipo());
+        ps.setString(1, eletronico.getNome());
+        ps.setString(3, eletronico.getMarca());
+        ps.setInt(4, eletronico.getQuantidade());
         ps.execute();
         ps.close();
         con.close();
